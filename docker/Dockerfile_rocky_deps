@@ -130,7 +130,10 @@ RUN { \
 # CPU core detection helper
 # =============================================================================
 COPY docker/check-cpu.sh ${AV_DEV}/docker/check-cpu.sh
-RUN CPU_CORES=$(${AV_DEV}/docker/check-cpu.sh) && \
+# Ensure script uses Unix line endings and is executable before running
+RUN sed -i 's/\r$//' ${AV_DEV}/docker/check-cpu.sh && \
+    chmod +x ${AV_DEV}/docker/check-cpu.sh && \
+    CPU_CORES=$(${AV_DEV}/docker/check-cpu.sh) && \
     echo "Build multithreading number of cores: ${CPU_CORES}"
 
 # =============================================================================

@@ -935,7 +935,7 @@ else()
                 ${SPHINX_EXECUTABLE}
                 -b html
                 "${CMAKE_CURRENT_SOURCE_DIR}/../docs/sphinx/rst"
-                "${SPHINX_HTML_DIR}"
+                "${SPHINX_HTML_DIR}"d
                 COMMENT "Building HTML documentation with Sphinx"
             )
 

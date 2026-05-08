@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # This script is used to check the amount of available memory to ensure 2 GB of memory per process.
-# If the number of processes is greater than the amount of available memory (considering 2 GB per core) we restrict the number of parallel make jobs to avoid resource contention. 
+# If the number of processes is greater than the amount of available memory (considering 2 GB per core) we restrict the number of parallel make jobs to avoid resource contention.
 #
 # Sample usage:
 # CPU_CORES=`check-cpu.sh`
@@ -12,7 +12,7 @@ NPROC=$(nproc)
 
 FREE_MEM=$(awk '/^MemAvailable:/{printf("%d",$2/1024/1024)}' /proc/meminfo)
 
->&2 echo "The amount of available memory on the system is ${FREE_MEM} GB" 
+>&2 echo "The amount of available memory on the system is ${FREE_MEM} GB"
 
 # Arbitrary minimum of RAM per process
 MIN_RAM_PER_CORE=2
